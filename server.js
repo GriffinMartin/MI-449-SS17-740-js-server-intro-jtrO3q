@@ -4,9 +4,13 @@ var http = require('http')
 // Create a new server
 var server = http.createServer(function (request, response) {
   if (request.url === '/') {
+    randomURL = Math.floor(Math.random() * 1000) + 1
     response.end(
       '<h1>Welcome!</h1>' +
-      '<img src="https://media.giphy.com/media/dzaUX7CAG0Ihi/giphy-facebook_s.jpg" alt="bear-waving">')
+      '<img src="https://media.giphy.com/media/dzaUX7CAG0Ihi/giphy-facebook_s.jpg" alt="bear-waving">' +
+      '<a href="/cuteness">' + '<h2>Cute Animals</h2>' + '</a>' +
+      '<a href="/random-joke">' + '<h2>Random Jokes</h2>' + '</a>' +
+      '<a href="/broken-url-' + randomURL + '">' + '<h2>Error Page</h2>' + '</a>')
   } else if (request.url === '/random-joke') {
     randomNumber = Math.floor(Math.random() * 3) + 1
     if (randomNumber === 1) {
